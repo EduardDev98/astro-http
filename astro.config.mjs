@@ -14,19 +14,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap()],
-
-  // output: "static" significa que Astro intentará prerenderizar todo por defecto
-  // Cada página será exportada como HTML estático a menos que se indique lo contrario
-
-  // Si export const prerender = true; → fuerza la prerenderización de esa página (estática)
-  // Si export const prerender = false; → esa página se generará dinámicamente en el servidor
-
-  // Aunque uses output: "static", puedes usar un adaptador como Node
-  // para soportar rutas dinámicas si alguna página tiene prerender = false
-  // adapter: node({
-  //   mode: 'standalone',
-  // }),
-  output:"server",
+  output: 'server',
   adapter: cloudflare(),
+  integrations: [mdx(), sitemap(), react()],
 });
