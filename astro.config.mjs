@@ -1,15 +1,11 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-// import react from '@astrojs/react'; // Eliminar o comentar
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://example.com',
-  output: 'server',
+  output: 'server', // o 'static' si quieres prerender
   adapter: cloudflare(),
-  integrations: [
-    mdx(),
-    sitemap(),
-    // react(),  // Eliminar o comentar
-  ],
+  integrations: [mdx(), sitemap()],
 });
