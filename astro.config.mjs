@@ -14,7 +14,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [mdx(), sitemap()],
 
   // output: "static" significa que Astro intentará prerenderizar todo por defecto
   // Cada página será exportada como HTML estático a menos que se indique lo contrario
@@ -27,6 +27,6 @@ export default defineConfig({
   // adapter: node({
   //   mode: 'standalone',
   // }),
-  output: 'server',
+  output:"server",
   adapter: cloudflare(),
 });
