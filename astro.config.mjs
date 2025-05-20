@@ -1,20 +1,18 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-
-// import node from '@astrojs/node';
-
 import react from '@astrojs/react';
-
-
 import cloudflare from '@astrojs/cloudflare';
 
-
-// https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
   output: 'server',
   adapter: cloudflare(),
   integrations: [mdx(), sitemap(), react()],
+  vite: {
+    ssr: {
+      external: ['react-dom/server'],
+      noExternal: ['@astrojs/react'],
+    },
+  },
 });
