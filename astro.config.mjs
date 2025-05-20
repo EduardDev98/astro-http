@@ -5,7 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://example.com',
-  output: 'server', // o 'static' si quieres prerender
+  output: 'static', // o 'static' si quieres prerender
   adapter: cloudflare(),
   integrations: [mdx(), sitemap()],
 });
